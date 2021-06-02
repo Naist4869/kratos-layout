@@ -13,6 +13,10 @@ type greeterRepo struct {
 
 // NewGreeterRepo .
 func NewGreeterRepo(data *Data, logger log.Logger) biz.GreeterRepo {
+	return newGreeterRepo(data, logger)
+}
+
+func newGreeterRepo(data *Data, logger log.Logger) *greeterRepo {
 	return &greeterRepo{
 		data: data,
 		log:  log.NewHelper(logger),

@@ -29,6 +29,7 @@ func NewHTTPServer(c *conf.Server, greeter *service.GreeterService, logger log.L
 		tracing.Server(),
 		logging.Server(logger),
 	)
+
 	srv.HandlePrefix("/", v1.NewGreeterHandler(greeter, m))
 	return srv
 }

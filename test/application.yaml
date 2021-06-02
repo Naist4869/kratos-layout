@@ -1,0 +1,35 @@
+server:
+  http:
+    network:
+    addr: 0.0.0.0:8001
+    timeout: 1s
+  grpc:
+    network:
+    addr: 0.0.0.0:9001
+    timeout: 1s
+data:
+  mysql:
+    driver: mysql
+    userName: root
+    password: root
+    addr: 127.0.0.1:3306 # 如果是 docker,可以替换为 对应的服务名称，eg: db:3306
+    dbName: user
+    showLog: true
+    maxOpenConn: 60
+    maxIdleConn: 10
+    connMaxLifeTime: 1h
+  redis:
+    addr: 127.0.0.1:6379
+    dial_timeout: 1s
+    read_timeout: 0.4s
+    write_timeout: 0.6s
+  mongodb:
+    hosts:
+      - 127.0.0.1:27017
+      - 127.0.0.1:27018
+      - 127.0.0.1:27019
+    username: subuy
+    password: password123
+    authSource: subuy
+otel:
+  collector_endpoint: http://localhost:14268/api/traces

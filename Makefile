@@ -38,7 +38,9 @@ http:
 proto:
 	protoc --proto_path=. \
 		--proto_path=./third_party \
+	    --proto_path=$(GOPATH)/src \
  		--go_out=paths=source_relative:. \
+        --validate_out=lang=go,paths=source_relative:. \
 		$(INTERNAL_PROTO_FILES)
 
 .PHONY: swagger
