@@ -21,7 +21,7 @@ type Data struct {
 	helper  *log.Helper
 	mysql   *gorm.DB
 	rdb     *redis.Client
-	mongodb *mongo.Client
+	mongodb *mongo.Database
 }
 
 func (d *Data) Endpoint() (string, error) {

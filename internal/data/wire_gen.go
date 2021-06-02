@@ -24,7 +24,7 @@ func NewData(conf2 *conf.Data, l log.Logger) (*Data, func(), error) {
 		cleanup()
 		return nil, nil, err
 	}
-	mongoClient, cleanup3, err := NewMongoDB(conf2, l)
+	database, cleanup3, err := NewMongoDB(conf2, l)
 	if err != nil {
 		cleanup2()
 		cleanup()
@@ -34,7 +34,7 @@ func NewData(conf2 *conf.Data, l log.Logger) (*Data, func(), error) {
 		helper:  helper,
 		mysql:   db,
 		rdb:     client,
-		mongodb: mongoClient,
+		mongodb: database,
 	}
 	return data, func() {
 		cleanup3()

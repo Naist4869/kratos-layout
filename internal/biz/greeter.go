@@ -2,7 +2,13 @@ package biz
 
 import (
 	"context"
+
 	"github.com/go-kratos/kratos/v2/log"
+)
+
+const (
+	DBGreeterVersion = 1 // 记录数据版本
+	DBGreeterKey     = "greeter"
 )
 
 type Greeter struct {
